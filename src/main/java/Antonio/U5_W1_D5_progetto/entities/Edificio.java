@@ -17,6 +17,13 @@ public class Edificio {
 
     public Edificio(){}
 
+    public Edificio(Long id, String name, String indirizzo, String citta) {
+        this.id = id;
+        this.name = name;
+        this.indirizzo = indirizzo;
+        this.citta = citta;
+    }
+
     public Long getId() {
         return id;
     }

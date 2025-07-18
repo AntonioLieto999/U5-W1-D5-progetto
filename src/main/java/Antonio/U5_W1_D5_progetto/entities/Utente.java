@@ -17,6 +17,13 @@ public class Utente {
 
     public Utente(){}
 
+    public Utente(Long id, String username, String nameSurname, String email) {
+        this.id = id;
+        this.username = username;
+        this.nameSurname = nameSurname;
+        this.email = email;
+    }
+
     public Long getId() {
         return id;
     }

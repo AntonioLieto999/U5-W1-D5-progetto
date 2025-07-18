@@ -23,6 +23,15 @@ public class Postazione {
 
     public Postazione(){}
 
+    public Postazione(Long id, String codice, String descrizione, TipoPostazione tipo, int occupanti, Edificio edificio) {
+        this.id = id;
+        this.codice = codice;
+        this.descrizione = descrizione;
+        this.tipo = tipo;
+        this.occupanti = occupanti;
+        this.edificio = edificio;
+    }
+
     public Long getId() {
         return id;
     }

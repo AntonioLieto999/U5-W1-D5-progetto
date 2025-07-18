@@ -40,4 +40,7 @@ public class ServicePrenotazione {
     public Map<LocalDate, List<Prenotazione>> getNumeroPrenotazionePerUtente(){
         return prenotazioneRepository.findAll().stream().collect(Collectors.groupingBy(Prenotazione::getData));
     }
+
+    public void prenotazione(Utente u, Postazione p, LocalDate data) {
+    }
 }
