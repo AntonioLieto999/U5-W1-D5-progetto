@@ -17,19 +17,12 @@ public class ServicePrenotazione {
     @Autowired
     private PrenotazioneRepository prenotazioneRepository;
 
-    public Prenotazione prenotaPostazione(Utente utente, Postazione postazione, LocalDate data){
-        if (prenotazioneRepository.existsByUtenteAndData(utente,data)){
-            throw new IllegalStateException("L'utente ha gia prenotato in questa data.");
-        }
-        if (prenotazioneRepository.existsByPostazioneAndData(postazione,data)){
-            throw new IllegalStateException("La postazione è gia prenotata per la data corrente.");
-        }
-        Prenotazione prenotazione = new Prenotazione();
-        prenotazione.setUtente(utente);
-        prenotazione.setPostazione(postazione);
-        prenotazione.setData(data);
+    public static void saveAll(List<Postazione> p1) {
 
-        return prenotazioneRepository.save(prenotazione);
+    }
+
+    public Prenotazione prenotaPostazione(Utente utente, Postazione postazione, LocalDate data) {
+        return null;
     }
 
     public List<Postazione> getPostazioniOccupateOggi(){

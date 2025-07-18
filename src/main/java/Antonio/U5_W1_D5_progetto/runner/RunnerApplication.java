@@ -9,7 +9,9 @@ import Antonio.U5_W1_D5_progetto.repository.EdificioRepository;
 import Antonio.U5_W1_D5_progetto.repository.PostazioneRepository;
 import Antonio.U5_W1_D5_progetto.repository.PrenotazioneRepository;
 import Antonio.U5_W1_D5_progetto.repository.UtenteRepository;
+import Antonio.U5_W1_D5_progetto.service.ServicePostazione;
 import Antonio.U5_W1_D5_progetto.service.ServicePrenotazione;
+import Antonio.U5_W1_D5_progetto.service.ServiceUtente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -23,9 +25,9 @@ public class RunnerApplication implements CommandLineRunner {
     @Autowired
     private EdificioRepository edificioRepository;
     @Autowired
-    private PostazioneRepository postazioneRepository;
+    private ServicePostazione servicePostazione;
     @Autowired
-    private UtenteRepository utenteRepository;
+    private ServiceUtente serviceUtente;
     @Autowired
     private PrenotazioneRepository prenotazioneRepository;
     @Autowired
@@ -39,11 +41,11 @@ public class RunnerApplication implements CommandLineRunner {
 
         Postazione p1 = new Postazione(null, "POS001", "Open Space 1", TipoPostazione.OPENSPACE, 10 ,edificio);
         Postazione p2 = new Postazione(null, "POS002", "Sala VIP", TipoPostazione.PRIVATO,5,edificio);
-        postazioneRepository.saveAll(List.of(p1,p2));
+        ServicePrenotazione.saveAll(List.of(p1,p2));
 
         Utente u1 = new Utente(null, "Giova201","Giovanni Storti","Giovanni.storti2001@gmail.com");
         Utente u2 = new Utente(null, "Lavica09","Lavica Ombroni","Lavica.ombroni1999@gmail.com");
-        utenteRepository.saveAll(List.of(u1, u2));
+        ServiceUtente.saveAll(List.of(u1, u2));
 
         LocalDate oggi = LocalDate.now();
         LocalDate domani = oggi.plusDays(1);
