@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class ServicePrenotazione {
@@ -35,5 +36,8 @@ public class ServicePrenotazione {
         return prenotazioneRepository.findAll().stream()
                 .filter(prenotazione -> prenotazione.getData().isEqual(LocalDate.now()))
                 .map(Prenotazione::getPostazione).distinct().toList();
+    }
+    public Map<LocalDate, List<Prenotazione>> getNumeroPrenotazionePerUtente(){
+        return prenotazioneRepository.findAll().stream().collect(Collectors.groupingBy(Prenotazione::getData));
     }
 }
