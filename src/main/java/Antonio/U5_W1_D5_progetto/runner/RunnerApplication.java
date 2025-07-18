@@ -60,5 +60,4 @@ public class RunnerApplication implements CommandLineRunner {
             System.out.println("Prenotazione fallita per " + u.getUsername() + ": " + e.getMessage());
         }
     }
-
 }
